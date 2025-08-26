@@ -58,12 +58,12 @@ Conclusion: Fred doesn't like pizza.
 
 
 
---> Is this a valid argument? 
+--> Is this a valid argument? YES*
 
 
 
 (is there a hidden assumption we're making about Fred?)
-
+That he's a human
 
 
 
@@ -79,16 +79,16 @@ I order fries or I order chips.
 
 
 - in English, how do we interpret "or"? 
-
+exclusive
 
 
 - in programming? 
-
+inclusive
 
 
 
 "Or" in THIS class: 
-
+inclusive
 
 
 
@@ -99,7 +99,7 @@ Premise 1: I'll fold the laundry or I'll do the dishes.
 Premise 2: I don't fold the laundry.
 
 --> What can I conclude? 
-
+I do the dishes
 
 
 
@@ -113,7 +113,7 @@ if (num < 4 || x >= 10) {
 
 
 Suppose we know "statement" is executed
---> What can we conclude? 
+--> What can we conclude? x >= 10
 
 
 
@@ -131,7 +131,9 @@ if (num < 4 || x >= 10) {
 
 
 Suppose we know "statement" is executed
---> What can we conclude? 
+--> What can we conclude? num < 4 AND num > 2
+
+if num is an int, num is 3
 
 
 
@@ -141,7 +143,7 @@ What rule are we seeing with an "or" statement,
 where we know that one of the statements is NOT true?
 
 
-
+We know that the other one is.
 
 
 
@@ -154,12 +156,14 @@ It is raining.
 
 --> What can I conclude? 
 
-
+I will get wet
 
 
 How to write with -> symbol?
 
-
+p: it is raining
+q: I will get wet
+p -> q
 
 ////////////////////////////////////////////////////////
 
@@ -168,7 +172,7 @@ and we know that the "if" part is true?
 
     ...what can we always conclude?
 
-
+the then part is true (modus ponens)
 
 
 
@@ -179,7 +183,7 @@ I am late for class.
 
 --> What can I conclude?
 
-
+Nothing
 
 
 
@@ -191,7 +195,7 @@ I hear my alarm.
 
 --> What can I conclude? 
 
-
+Nothing
 
 
 
@@ -205,16 +209,16 @@ I'm not late for class.
 
 --> What can I conclude?
 
-
-
+I did hear my alarm.
+contrapositive
 
 IF I don't hear my alarm THEN I will be late for class.
 
 is equivalent to:
 
+If I'm not late for class, then I did hear my alarm
 
-
-
+p -> q == !q -> !p
 
 if (condition) {
     statement
@@ -222,13 +226,13 @@ if (condition) {
 
 --> what if we know statement is NOT executed? 
 
-
+condition = false
 
 If p Then q
 
 ... is equivalent to?
 
-
+If not q Then not p
 ////////////////////////////////////////////////////////
 
 More if/then logic in programming.
@@ -241,7 +245,7 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is 17 here. What do we know?
 
-
+Nothing
 
 
 /////////////////////////////////////////////////////////
@@ -254,7 +258,7 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is 17 here. Can we conclude anything now?
 
-
+num < 4 OR x >= 10
 
 
 
@@ -267,6 +271,8 @@ if (num < 4 || x >= 10) {
 
 --> suppose y is NOT 17 here. What do we know?
 
+num >= 4 AND x < 10
+DeMorgan's Law
 
 ///////////////////////////////////////////////////////
 
@@ -294,7 +300,7 @@ Who can say, "I'm a knave"?
 Can a knight?
 Can a knave?
 
-
+No one
 
 //////////////////////////////////////////////////////////
 
@@ -306,11 +312,14 @@ Eve says, "I am a knave or Fred is a knight."
 
 What are Eve and Fred? 
 
+They are both knights
 
+Suppose Eve is a knight. Then fred must also be a knight.
+Suppose Eve is a knave, her statement becomes true, which is invalid.
 
-(what does the "or" mean?) 
+(what does the "or" mean?) inclusive
 
-
+If one is false, the other is true
 
 Her WHOLE statement is the or -- we only need to whole statement
 to be true, not each individual piece.
@@ -323,19 +332,20 @@ You see two different inhabitants, Ava and Bob.
 Ava says that Bob is a knave.
 Bob says, "Neither Ava nor I are knaves."
 
-
+Bob says We are both knights
 
 What are Ava and Bob?
 
+Ava is a Knight
+Bob is a Knave
 
+If Ava was a knight, then Bob is a knave, but Bob says they are knights, which must be false, and is.
+If Ava was a knave, then Bob must be a Knight, but Bob says Ava is a Knight, which is Invalid.
 
 
 What does "neither" mean?
-    When is Bob's statement true? 
-    When is Bob's statement false? 
-
-
-
+    When is Bob's statement true? They are both knights
+    When is Bob's statement false? If one of the 2 are knaves
 
 ////////////////////////////////////////////////////////
 
@@ -351,3 +361,16 @@ Homework 1: due Tuesday, September 2
     - second page is logic puzzles
 
 Next: finish logic puzzles, start truth tables
+
+
+
+Grade Helpers:
+- Bottom 2 homework grades are dropped
+- If you score better on the final than on one of the midterms, the worse screo will be replaced to match your score on the final.
+
+Extra Credit:
+- Bug Bounties
+- Helping other people
+
+General:
+- No AI
