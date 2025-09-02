@@ -172,10 +172,10 @@ Written for Singapore and Asian Schools Math Olympiad in 2015
 Albert and Bernard want to know when Cheryl's birthday is.
 Cheryl gives them 10 potential dates:
 
-May 15, May 16, May 19
-June 17, June 18
-July 14, July 16
-August 14, August 15, August 17
+~~May 15, May 16, May 19~~
+~~June 17, June 18~~
+~~July 14~~, July 16
+~~August 14~~, ~~August 15, August 17~~
 
 Cheryl privately tells Albert her birthday month.
     (May, June, July, or August)
@@ -194,7 +194,7 @@ Bernard says: "At first I didn't know when Cheryl's
 Albert says: "Then I also know when Cheryl's birthday is."
 
 
-When is it?
+When is it? July 16
 
 
 
