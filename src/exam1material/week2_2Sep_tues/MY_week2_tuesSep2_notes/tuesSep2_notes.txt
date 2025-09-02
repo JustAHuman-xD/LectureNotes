@@ -34,10 +34,10 @@ When is this true? When is this false?
 
 p q  #  p → q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    F
+F T  #    T
+F F  #    T
 
 //////////////////////////////////////
 
@@ -45,29 +45,29 @@ Evaluating logical statements.
 
 Basic operations:
 
-∧ - 
-∨ - 
-¬ - 
-→ - 
+∧ - And
+∨ - Or (inclusive)
+¬ - Not
+→ - Implies
 
 ////////////////////////////////////////
 
 Consider ¬p ∨ q ∧ r.
 
 --> what operation do we do first?
-
+Not, And, Or, Implies
 
 
 Order of operations
 
 In math? 
 
-
+(), ^, */, +-
 
 For logic statements (∧ ∨ ¬ →)?
 
 
-
+(), ¬, ∧, ∨, →
 
 
 Given this statement:
@@ -80,7 +80,7 @@ Given this statement:
 Add () to show the order of operations.
 
 
-
+((¬p) V (q ∧ r))
 
 
 Evaluate the above statement using these
@@ -91,23 +91,23 @@ q is F
 r is F
 
 
-
+F
 
 
 ////////////////////////////////////////////////
 
 Order of operations
     ¬ evaluates right to left
-        ¬¬p is equivalent to....
+        ¬¬p is equivalent to....  (¬(¬p))
 
 
     ∧ and ∨ evaluate left to right
-        p ∧ q ∧ r is equivalent to....
-        p ∨ q ∨ r is equivalent to....
+        p ∧ q ∧ r is equivalent to....  ((p ∧ q) ∧ r)
+        p ∨ q ∨ r is equivalent to....  ((p ∨ q) ∨ r)
 
 
     → evaluates right to left
-        p → q → r is equivalent to....
+        p → q → r is equivalent to....  (p → (q → r))
 
 
 
@@ -121,21 +121,21 @@ Top-level operator (what happens LAST?)
 ¬p ∨ q ∧ r
 
 
-top-level? 
+top-level? ∨
 
 
 How is this similar to a circuit? 
 
-
+The last gate
 
 ///////////////////////////////
 
 p ∧ q ∨ r ∧ p
 
-rewrite with ():
+rewrite with (): ((p ∧ q) ∨ (r ∧ p))
 
 
-top-level operator? 
+top-level operator? ∨
 
 
 
@@ -143,7 +143,7 @@ top-level operator?
 
 p ∧ q ∧ r ∧ s
 
-rewrite with ():
+rewrite with (): (((p ∧ q) ∧ r) ∧ s)
 
 
 top-level operator? AND 
@@ -163,7 +163,7 @@ If we have 2 variables, how many possible truth assignments?
 
     p, q
 
-
+4
 
 
 
@@ -171,12 +171,12 @@ If we have 3 variables, how many possible truth assignments?
 
     p, q, r
 
-
+8
 
 If we have n variables, how many possible truth assignments?
 
 
-
+2^n
 
 
 
@@ -190,20 +190,20 @@ Contingent, contradictory, tautology
 
 
 
-contingent: 
+contingent: at least one truth assignment evaluates to true, and at least one evaluates to false (a mix)
 
-    Example? 
-
-
-
-contradictory:
-
-    Example? 
+    Example? p
 
 
-tautology:
 
-    Example? 
+contradictory: every truth assignment evaluates to false
+
+    Example? ¬p ∧ p
+
+
+tautology: every truth assignment evaluates to true
+
+    Example? ¬p ∨ p
     
 
 ///////////////////////////////////////////
@@ -237,13 +237,13 @@ F F F #
 
 
 
---> top-level operator?
+--> top-level operator? implies
 
 --> need to evaluate statement on ALL possible truth assignments
 
---> how many truth assignments are there?
+--> how many truth assignments are there? 8
 
---> how would we classify this truth table?
+--> how would we classify this truth table? tautology
 
 
 /////////////////////////////////////////
@@ -263,7 +263,7 @@ alignment matters!
 --> order of operations in Logika
 
 //////////////////////////////////////
-Complete tautology.logika
+Complete tautology.logika (done)
 
 //////////////////////////////////////
 
@@ -316,22 +316,22 @@ Propositional logic.
 
 Which ones are propositions?
 
-Today is Thursday.
+Today is Thursday. is
 
 
-What time is it?
+What time is it? isn't
 
 
-x == 2
+x == 2 is
 
 
-Pigs can fly.
+Pigs can fly. is
 
 
-Drive carefully.
+Drive carefully. isn't
 
 
-y <= 4
+y <= 4 is
 
 
 
@@ -350,21 +350,21 @@ Suppose we have these propositional atoms:
 
 How would we express these as English sentences?
 
-    ¬p:
+    ¬p: It is not freezing
 
 
-    p ∧ q:
+    p ∧ q: It is freezing and snowing
 
 
-    p → q :
+    p → q : If it is freezing then it is snowing
 
 
-    ¬p → ¬q:
+    ¬p → ¬q: If it is not freezing then it is not snowing
 
 
-    r ∨ s:
+    r ∨ s: (y <=4 || x == 2)
 
-    ¬r:
+    ¬r: y > 4
 
 ////////////////////////
 
